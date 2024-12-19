@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+    <channel>
+        <title>Dawaa Bank Admin</title>
+        <description>Most recent updates to Dawaa Bank Admin</description>
+        <language>en</language>
+        <item>
+            <title>Version 0.1.0</title>
+            <sparkle:releaseNotesLink>
+                 https://raw.githubusercontent.com/Assem9/updates-api/main/sop_admin_release_notes.txt
+            </sparkle:releaseNotesLink>
+            <pubDate>Sun, 27 Nov 2024 23:00:00 +0800</pubDate>
+            <enclosure url="https://github.com/Assem9/updates-api/releases/download/1.5.6/SOPAdmin.exe"
+                sparkle:dsaSignature="MD0CHQDjiCPtZ152LDfz3IX25vdxkvRdGa1lLlkvJMX2AhwXTyfxLXs8guAqxYXeUFCc4kYz9/gHS+oTLX+i"
+                sparkle:version="1.5.6"
+                sparkle:os="windows"
+                length="13,463,507"
+                type="application/octet-stream" />
+        </item>
+    </channel>
+</rss>
