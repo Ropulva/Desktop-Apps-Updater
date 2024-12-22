@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+    <channel>
+        <title>Dawaa Bank</title>
+        <description>Most recent updates to Dawaa Bank</description>
+        <language>en</language>
+        <item>
+            <title>Version 0.0.1</title>
+            <sparkle:releaseNotesLink>
+                 https://raw.githubusercontent.com/Ropulva/Desktop-Apps-Updater/master/dawaa_bank/release_notes.txt
+            </sparkle:releaseNotesLink>
+            <pubDate>Sun, 22 Dec 2024 23:00:00 +0800</pubDate>
+            <enclosure url="https://github.com/Ropulva/Desktop-Apps-Updater/releases/download/0.0.1/dawaabank_setup.exe"
+                sparkle:dsaSignature="MD0CHQCV770NQuuy8NBvkEARxpsCGOxudSeCIQxiCHz9Ahw3BbxCVsaTIQV9gR6NyvKuCHyXClEOJ1G/OxSR"
+                sparkle:version="0.0.1"
+                sparkle:os="windows"
+                length="14,628,816"
+                type="application/octet-stream" />
+        </item>
+    </channel>
+</rss>
