@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+    <channel>
+        <title>Salim Provider</title>
+        <description>Most recent updates to Salim Provider</description>
+        <language>en</language>
+        <item>
+            <title>Version 1.1.2+1</title>
+            <sparkle:releaseNotesLink>
+                 https://raw.githubusercontent.com/Ropulva/Desktop-Apps-Updater/master/salim_provider/release_notes.txt
+            </sparkle:releaseNotesLink>
+            <pubDate>Sun, 22 Dec 2024 23:00:00 +0800</pubDate>
+            <enclosure url="https://github.com/Ropulva/Desktop-Apps-Updater/releases/download/1.1.2+1/Salim_provider_setup.exe"
+                sparkle:dsaSignature="MDwCHER7crVztY8fWUl1RWSj17nJvr5mz61dG1JZWPoCHDSJPxiE3x8oQFblg8FoL6MvDHYJ3r0Bs3XZlfo="
+                sparkle:version="1.1.2+1"
+                sparkle:os="windows"
+                length="33,028,906"
+                type="application/octet-stream" />
+        </item>
+    </channel>
+</rss>
