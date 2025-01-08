@@ -11,10 +11,10 @@
             </sparkle:releaseNotesLink>
             <pubDate>Wed, 8 Jan 2025 23:00:00 +0800</pubDate>
             <enclosure url="https://github.com/Ropulva/Desktop-Apps-Updater/releases/download/0.1.2/dawaabank_setup.exe"
-                sparkle:dsaSignature="MDwCHHhA3Z5SKA7DFseJel5G/gOephKX8zJPyJp2WSwCHFHSL7cOaDB0foB1QUvAFOmZjY8Vzv1sDet3zoo="
+                sparkle:dsaSignature="MD4CHQCNppjy6VbCNHVmWRtnQW4uAUN/jSYkF04EEQ6WAh0Ag2RaUsmB9UH/u56WGzvbbEU0jbX5vgFx7bVmKg=="
                 sparkle:version="0.1.2"
                 sparkle:os="windows"
-                length="14,670,190"
+                length="14,670,179"
                 type="application/octet-stream" />
         </item>
     </channel>
