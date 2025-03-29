@@ -1,3 +1,4 @@
-🚀 Version 0.1.6 Release Notes
-🌟 Improvements and Features:
+🚀 Version 0.2.2 Release Notes
+🌟 Whats New:
+    - 🌟 Fixing Bugs & Issues
     - 🧪 Enhancing UIs
