@@ -1,4 +1,6 @@
-🚀 Version 0.2.2 Release Notes
+🚀 Version 0.2.3 Release Notes
 🌟 Whats New:
     - 🌟 Fixing Bugs & Issues
-    - 🧪 Enhancing UIs
+    - 🧪 Add Customers Section in Admin Dashboard
+    - 🧪 Add Bills App
+    - 🧪 Open Barcode scanner in FullScreen
