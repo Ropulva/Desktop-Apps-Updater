@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+    <channel>
+        <title> Sendout Pro </title>
+        <description>Most recent updates to Sendout Pro</description>
+        <language>en</language>
+        <item>
+            <title>Version 1.4.0</title>
+            <sparkle:releaseNotesLink>
+                 https://raw.githubusercontent.com/Assem9/updates-api/main/release_notes.txt
+            </sparkle:releaseNotesLink>
+            <pubDate>Sun, 13 Oct 2024 13:00:00 +0800</pubDate>
+            <enclosure url="https://github.com/Assem9/updates-api/releases/download/1.4.0/SOPClient.exe"
+                sparkle:dsaSignature="MDwCHA1C2Erdel0dffuMotwG3eNnLNn3Y5cDtOk2h4kCHE7PADQyfMvVDPiUKgpSFCciuJ7nq/QR/VMSYA4="
+                sparkle:version="1.4.0"
+                sparkle:os="windows"
+                length="15,822,322"
+                type="application/octet-stream" />
+        </item>
+    </channel>
+</rss>
