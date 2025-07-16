@@ -1,3 +1,5 @@
-🚀 Version 1.4.3 Release Notes
+🚀 Version 1.5.0 Release Notes
 🌟 Fixes and Improvements:
+ - 🧪 You Can login with PIN Code Now !!
+ - 🧪 Chat Support Added
 
