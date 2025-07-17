@@ -9,9 +9,10 @@
             <sparkle:releaseNotesLink>
                 https://raw.githubusercontent.com/Ropulva/Desktop-Apps-Updater/master/sendout_pro_dashboard/release_notes.txt
             </sparkle:releaseNotesLink>
+
             <pubDate>Thu, 17 Jul 2025 17:00:00 +0800</pubDate>
             <enclosure url="https://github.com/Ropulva/Desktop-Apps-Updater/releases/download/sop-dashboard-v2.0.0/SOPAdmin.exe"
-                sparkle:dsaSignature="MDwCHGuOmeTRxzHpKCyakEFm3hCEaMcOBCgxgMWHm/oCHFxO0fnlTqEm2eYNSNV5OGxcpDD5Ji/yPVLRMQk="
+                sparkle:dsaSignature="MD0CHEZLsh9+STWOaisXZ5JqJ5vPZY8kaniMdd6Sj4MCHQCksY4uPgDlYA6Et+DUV42fEOcEIj4vudzCyXsM"
                 sparkle:version="2.0.0"
                 sparkle:os="windows"
                 length="14,004,450"
