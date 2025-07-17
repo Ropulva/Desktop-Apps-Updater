@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+    <channel>
+        <title> Sendout Pro Admin</title>
+        <description>Most recent updates to Sendout Pro Admin</description>
+        <language>en</language>
+        <item>
+            <title>Version 2.0.0</title>
+            <sparkle:releaseNotesLink>
+                https://raw.githubusercontent.com/Ropulva/Desktop-Apps-Updater/master/sendout_pro_dashboard/release_notes.txt
+            </sparkle:releaseNotesLink>
+            <pubDate>Thu, 17 Jul 2025 17:00:00 +0800</pubDate>
+            <enclosure url="https://github.com/Ropulva/Desktop-Apps-Updater/releases/download/sop-dashboard-v2.0.0/SOPAdmin.exe"
+                sparkle:dsaSignature="MDwCHGuOmeTRxzHpKCyakEFm3hCEaMcOBCgxgMWHm/oCHFxO0fnlTqEm2eYNSNV5OGxcpDD5Ji/yPVLRMQk="
+                sparkle:version="2.0.0"
+                sparkle:os="windows"
+                length="14,004,450"
+                type="application/octet-stream" />
+        </item>
+    </channel>
+</rss>
