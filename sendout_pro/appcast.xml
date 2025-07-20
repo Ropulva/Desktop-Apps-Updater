@@ -5,16 +5,16 @@
         <description>Most recent updates to Sendout Pro</description>
         <language>en</language>
         <item>
-            <title>Version 1.5.0</title>
+            <title>Version 1.5.1</title>
             <sparkle:releaseNotesLink>
                 https://raw.githubusercontent.com/Ropulva/Desktop-Apps-Updater/master/sendout_pro/release_notes.txt
             </sparkle:releaseNotesLink>
-            <pubDate>Thu, 17 Jul 2025 00:00:00 +0800</pubDate>
-            <enclosure url="https://github.com/Ropulva/Desktop-Apps-Updater/releases/download/sop-v1.5.0/sendoutpro_1.5.0.exe"
-                sparkle:dsaSignature="MD0CHBoz8DTE/iQPTqSmjEtITsf5f8CHQbY9fSFDzW4CHQCpokps1LCA6tDNB/r1X22fCH9H5igxai0aPaZN"
-                sparkle:version="1.5.0"
+            <pubDate>Sun, 20 Jul 2025 20:40:00 +0800</pubDate>
+            <enclosure url="https://github.com/Ropulva/Desktop-Apps-Updater/releases/download/sop-v1.5.1/sendoutpro_1.5.1.exe"
+                sparkle:dsaSignature="MD0CHBRWhGPXejH8zSbT+mUa1xG4ZuWiw169oNFUM9UCHQCXIokrxeJLPlMcyEXm5rbJAG4ix/xj9pACti79"
+                sparkle:version="1.5.1"
                 sparkle:os="windows"
-                length="16,928,333"
+                length="16,931,645"
                 type="application/octet-stream" />
         </item>
     </channel>
