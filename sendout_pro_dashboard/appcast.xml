@@ -5,17 +5,17 @@
         <description>Most recent updates to Sendout Pro Admin</description>
         <language>en</language>
         <item>
-            <title>Version 2.0.1</title>
+            <title>Version 2.0.2</title>
             <sparkle:releaseNotesLink>
                 https://raw.githubusercontent.com/Ropulva/Desktop-Apps-Updater/master/sendout_pro_dashboard/release_notes.txt
             </sparkle:releaseNotesLink>
 
-            <pubDate>Mon, 21 Jul 2025 03:00:00 +0800</pubDate>
-            <enclosure url="https://github.com/Ropulva/Desktop-Apps-Updater/releases/download/sop-dashboard-v2.0.1/SOPAdmin.exe"
-                sparkle:dsaSignature="MDwCHHD8tCfljOHtwexhWAZFG4oIWaEjaI9EevEJjnMCHCXnFk4TXBHD5doDEE4kE9Y2vkDeN9K7aZFtAyM="
-                sparkle:version="2.0.1"
+            <pubDate>Wed, 23 Jul 2025 21:00:00 +0800</pubDate>
+            <enclosure url="https://github.com/Ropulva/Desktop-Apps-Updater/releases/download/sop-dashboard-v2.0.2/SOPAdmin.exe"
+                sparkle:dsaSignature="MD4CHQCPgRCfODdushToy+Mp5CkwDg+ky74ycj6SDx5zAh0A4cUKZfzdPjspnufnBckxuw2uk9gr4q5kjv6Zqg=="
+                sparkle:version="2.0.2"
                 sparkle:os="windows"
-                length="13,771,094"
+                length="13,772,002"
                 type="application/octet-stream" />
         </item>
     </channel>

@@ -1,9 +1,3 @@
 🚀 Version 2.0.1 Release Notes
 🌟 Fixes and Improvements:
- - 🧪 User can open workspace from transactions tables
- - 🧪 Refresh table every time page opens
- - 🧪 Refresh Wallet after every op on it
- - 🧪 Fix LeftBar shrink
- - 🧪 Fix Workspaces search can not cancel when nav back to page
- - 🧪 Fix LeftBar shrink
 
