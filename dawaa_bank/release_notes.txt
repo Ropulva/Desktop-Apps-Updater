@@ -1,6 +1,6 @@
-🚀 Version 0.2.3 Release Notes
+🚀 Version 0.3.0 Release Notes
 🌟 Whats New:
     - 🌟 Fixing Bugs & Issues
-    - 🧪 Add Customers Section in Admin Dashboard
-    - 🧪 Add Bills App
-    - 🧪 Open Barcode scanner in FullScreen
+    - 🧪 Add B2b (Pos, Orders, Customers, Offers)
+    - 🧪 Scan with physical device
+    - 🧪 Shift Management
