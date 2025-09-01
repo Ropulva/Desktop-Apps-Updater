@@ -1,4 +1,4 @@
-🚀 Version 0.4.0 Release Notes
+🚀 Version 0.4.2 Release Notes
 🌟 Whats New:
     - 🌟 Fixing Bugs & Issues
     - 🧪 Add B2b (Pos, Orders, Customers, Offers)
