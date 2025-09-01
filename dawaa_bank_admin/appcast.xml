@@ -5,14 +5,17 @@
         <description>Most recent updates to Dawaa Bank Admin</description>
         <language>en</language>
         <item>
-            <title>Version 0.1.0</title>
+            <title>Version 0.2.0</title>
             <sparkle:releaseNotesLink>
                  https://raw.githubusercontent.com/Ropulva/Desktop-Apps-Updater/master/dawaa_bank_admin/release_notes.txt
             </sparkle:releaseNotesLink>
             <pubDate>Thu, 12 Dec 2024 23:00:00 +0800</pubDate>
+            <sparkle:criticalUpdate>true</sparkle:criticalUpdate>
+            <sparkle:minimumSystemVersion>0.2.0</sparkle:minimumSystemVersion>
             <enclosure url="https://github.com/Ropulva/Desktop-Apps-Updater/releases/download/0.1.0/dawaa_bank_admin_setup.exe"
                 sparkle:dsaSignature="MDwCHHFhBfds/wW6w2vF77FrMrtmkqhanO+ARwL4cW8CHBhLh5qjRZZWHcXqp0xN/nvSlLrXnPKFPqnKqqw="
-                sparkle:version="0.1.0"
+                sparkle:version="0.2.0"
+                sparkle:buildNumber="0"
                 sparkle:os="windows"
                 length="15,048,898"
                 type="application/octet-stream" />
