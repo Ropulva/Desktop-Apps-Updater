@@ -1,3 +1,8 @@
-🚀 Version 0.4.3 Release Notes
+🚀 Version 0.5.0 Release Notes
 🌟 Whats New:
-    - 🌟 Fixing Sign page issue
+    - 🧪 Enhance Uis
+    - 🧪 Now You Can Sell With Wasfaty
+    - 🧪 Manage your Wasfaty orders and items
+    - 🧪 New Downloads Bar to track all files
+
+
