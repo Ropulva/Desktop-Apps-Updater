@@ -1,6 +1,7 @@
-🚀 Version 0.5.1 Release Notes
+🚀 Version 0.5.2 Release Notes
 🌟 Whats New:
-    - 🧪 Enhance Uis
-    - 🧪 Now You Can Create Wasfaty Transaction
+    - 🧪 Fixes
+    - 🧪 Enhance Items Search
+    - 🧪 Add Item Stocks Tab
 
 
