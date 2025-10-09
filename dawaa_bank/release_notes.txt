@@ -1,7 +1,8 @@
-🚀 Version 0.5.2 Release Notes
+🚀 Version 0.5.3 Release Notes
 🌟 Whats New:
     - 🧪 Fixes
-    - 🧪 Enhance Items Search
-    - 🧪 Add Item Stocks Tab
+    - 🧪 Enhance WasfatyItems Search
+    - 🧪 Printer settings, Print through thermal printer
+    - 🧪 Employee Profile
 
 
