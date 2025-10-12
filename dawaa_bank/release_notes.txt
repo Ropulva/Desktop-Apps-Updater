@@ -1,7 +1,10 @@
-🚀 Version 0.5.2 Release Notes
+🚀 Version 0.5.4 Release Notes
 🌟 Whats New:
-    - 🧪 Fixes
-    - 🧪 Enhance Items Search
-    - 🧪 Add Item Stocks Tab
+    - 🧪 Fixes And Enhances
+    - 🧪 Report To Zatca
+    - 🧪 Printer settings, Print through thermal printer
+    - 🧪 Enhance WasfatyItems Search
+    - 🧪 Employee Profile
+    - 🧪 Pin Code
 
 
