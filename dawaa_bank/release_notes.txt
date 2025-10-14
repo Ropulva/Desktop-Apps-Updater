@@ -1,10 +1,11 @@
-🚀 Version 0.5.4 Release Notes
+🚀 Version 0.5.5 Release Notes
 🌟 Whats New:
     - 🧪 Fixes And Enhances
     - 🧪 Report To Zatca
     - 🧪 Printer settings, Print through thermal printer
     - 🧪 Enhance WasfatyItems Search
     - 🧪 Employee Profile
+    - 🧪 Employee Income
     - 🧪 Pin Code
 
 
