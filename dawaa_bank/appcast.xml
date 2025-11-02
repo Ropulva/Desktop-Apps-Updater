@@ -13,7 +13,7 @@
             <sparkle:criticalUpdate>false</sparkle:criticalUpdate>
             <sparkle:minimumSystemVersion>0.5.5</sparkle:minimumSystemVersion>
             <enclosure url="https://github.com/Ropulva/Desktop-Apps-Updater/releases/download/dawaabank_0.6.0/dawaabank_setup.exe"
-                sparkle:dsaSignature="MDwCHHbuWnmhmrXptawmZrHvoGRFVUNtMiBR4zNBmtkCHHkoF17qVkD8AZU3aHVY/Xftx4D5CHNTwtlmkgM="
+                sparkle:dsaSignature="MD4CHQCUW6R/lKrGafodDyII4uIXztneFZJrTdkHK4U8Ah0At0h2OBVW8pdLOvc74Z5WmNyOGqngkAhZo1sRWw=="
                 sparkle:version="0.6.0"
                 sparkle:buildNumber="0"
                 sparkle:os="windows"
