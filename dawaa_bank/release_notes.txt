@@ -1,7 +1,5 @@
-🚀 Version 0.6.0 Release Notes
+🚀 Version 0.6.1 Release Notes
 🌟 Whats New:
     - 🧪 Fixes And Enhances
-    - 🧪 Integrate With Zatca
-    - 🧪 Print Labels
 
 
