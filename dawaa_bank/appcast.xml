@@ -7,7 +7,7 @@
         <item>
             <title>Version 0.6.3</title>
             <sparkle:releaseNotesLink>
-                 https://raw.githubusercontent.com/Ropulva/Desktop-Apps-Updater/master/dawaa_bank/release_notes.txt
+                https://s3.amazonaws.com/dawaabank/dev/auto_updater/1763404727427-release_notes.g.txt
             </sparkle:releaseNotesLink>
             <pubDate>Tue, 5 Nov 2025 13:25:00 +0800</pubDate>
             <sparkle:criticalUpdate>false</sparkle:criticalUpdate>
