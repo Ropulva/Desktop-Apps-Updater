@@ -1,6 +1,6 @@
-🚀 Version 0.6.3 Release Notes
+🚀 Version 0.6.4 Release Notes
 🌟 Whats New:
     - 🧪 Fixes And Enhances
-    - 🧪 Add More Configurations to printer
+    - 🧪 Now You Can Edit Stock Prices
 
 
