@@ -1,6 +1,6 @@
-🚀 Version 0.7.0 Release Notes
+🚀 Version 0.7.1 Release Notes
 🌟 Whats New:
     - 🧪 Fixes And Enhances
-    - 🧪 Inventorying Feature
+    - 🧪 Inventorying and defective Updates
 
 
