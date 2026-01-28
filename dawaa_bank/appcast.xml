@@ -10,8 +10,8 @@
                 https://raw.githubusercontent.com/Ropulva/Desktop-Apps-Updater/master/dawaa_bank/release_notes.txt
             </sparkle:releaseNotesLink>
             <pubDate>Wed, 28 Jan 2026 12:00:12</pubDate>
-            <sparkle:criticalUpdate>true</sparkle:criticalUpdate>
-            <sparkle:minimumSystemVersion>0.8.7</sparkle:minimumSystemVersion>
+            <sparkle:criticalUpdate>false</sparkle:criticalUpdate>
+            <sparkle:minimumSystemVersion>0.8.6</sparkle:minimumSystemVersion>
             <enclosure url="https://github.com/Ropulva/Desktop-Apps-Updater/releases/download/dawaabank_0.8.7/dawaabank_setup.exe"
                 sparkle:dsaSignature="MD0CHQCSNUzgz1VIXzr5XmLdfhI4Q5MwwHxSD6p6hzbAAhwfRs9s+zrWzE/jrRaql61rbcjPcQWEuFQSWCSw"
                 sparkle:version="0.8.7"
