@@ -5,19 +5,19 @@
         <description>Most recent updates to Dawaabank</description>
         <language>en</language>
         <item>
-            <title>Version 1.0.0</title>
+            <title>Version 1.0.1</title>
             <sparkle:releaseNotesLink>
                 https://raw.githubusercontent.com/Ropulva/Desktop-Apps-Updater/master/dawaa_bank/release_notes.txt
             </sparkle:releaseNotesLink>
-            <pubDate>Mon, 23 Mar 2026 18:29:13</pubDate>
+            <pubDate>Wed, 25 Mar 2026 16:47:47</pubDate>
             <sparkle:criticalUpdate>false</sparkle:criticalUpdate>
             <sparkle:minimumSystemVersion>0.9.8</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/Ropulva/Desktop-Apps-Updater/releases/download/dawaabank_1.0.0/dawaabank_setup.exe"
-                sparkle:dsaSignature="MD4CHQCzqTmGx+1YOtDDKb45v5/W2b9zMADtP4LADuSTAh0AmLYK0Wc78q3aq6bYKX22VwxJkmnhgBh6gnMo/A=="
-                sparkle:version="1.0.0"
+            <enclosure url="https://github.com/Ropulva/Desktop-Apps-Updater/releases/download/dawaabank_1.0.1/dawaabank_setup.exe"
+                sparkle:dsaSignature="MDwCHBl722nZvZcmXpzGQQvyty5JDy8pLnQsqYLPK4wCHH3fpZ+QKHEvp/8mL97PWcWn5H7AqtXKnISNuCc="
+                sparkle:version="1.0.1"
                 sparkle:buildNumber="0"
                 sparkle:os="windows"
-                length="26,510,493"
+                length="26,533,188"
                 type="application/octet-stream"/>
         </item>
     </channel>
