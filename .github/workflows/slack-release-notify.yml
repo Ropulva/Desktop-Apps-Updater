@@ -23,33 +23,53 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
         run: |
           set +e
           echo "📦 Fetching all releases..."
 
           RELEASES=$(curl -s -H "Authorization: token $GH_TOKEN" \
-            "https://api.github.com/repos/${{ github.repository }}/releases")
+            "https://api.github.com/repos/$REPO/releases")
 
           TOTAL=$(echo "$RELEASES" | jq 'length')
           echo "Found $TOTAL releases"
 
+          # Debug: Test webhook first
+          echo "🔍 Testing webhook connection..."
+          echo '{"text":"🔌 Webhook test - connection OK"}' > /tmp/test.json
+          TEST_RESPONSE=$(curl -s -o /tmp/slack_response.txt -w "%{http_code}" \
+            -X POST -H 'Content-type: application/json' \
+            --data @/tmp/test.json \
+            "$SLACK_WEBHOOK_URL")
+          echo "Test response code: $TEST_RESPONSE"
+          echo "Test response body: $(cat /tmp/slack_response.txt)"
+
+          if [ "$TEST_RESPONSE" != "200" ]; then
+            echo "❌ Webhook not working! Check SLACK_WEBHOOK_URL secret."
+            exit 1
+          fi
+
+          sleep 1
+
           # Send header message
-          curl -s -X POST -H 'Content-type: application/json' \
-            --data "{
-              \"blocks\": [
-                {
-                  \"type\": \"header\",
-                  \"text\": {
-                    \"type\": \"plain_text\",
-                    \"text\": \"📋 Dawaabank - All Release History ($TOTAL releases)\",
-                    \"emoji\": true
-                  }
-                },
-                {
-                  \"type\": \"divider\"
+          cat > /tmp/payload.json << 'EOF'
+          {
+            "blocks": [
+              {
+                "type": "header",
+                "text": {
+                  "type": "plain_text",
+                  "text": "📋 Dawaabank - All Release History",
+                  "emoji": true
                 }
-              ]
-            }" \
+              },
+              {"type": "divider"}
+            ]
+          }
+          EOF
+
+          curl -s -X POST -H 'Content-type: application/json' \
+            --data @/tmp/payload.json \
             "$SLACK_WEBHOOK_URL"
 
           sleep 1
@@ -57,9 +77,10 @@ jobs:
           # Sort releases and save to temp file
           echo "$RELEASES" | jq -c 'sort_by(.published_at) | .[]' > /tmp/releases.jsonl
 
+          COUNT=0
           while IFS= read -r RELEASE; do
+            COUNT=$((COUNT + 1))
             TAG=$(echo "$RELEASE" | jq -r '.tag_name // "unknown"')
-            NAME=$(echo "$RELEASE" | jq -r '.name // .tag_name // "unknown"')
             URL=$(echo "$RELEASE" | jq -r '.html_url // ""')
             AUTHOR=$(echo "$RELEASE" | jq -r '.author.login // "unknown"')
             DATE=$(echo "$RELEASE" | jq -r '.published_at // ""' | cut -d'T' -f1)
@@ -75,118 +96,112 @@ jobs:
               if [ -n "$EXE_SIZE" ] && [ "$EXE_SIZE" != "null" ] && [ "$EXE_SIZE" != "0" ]; then
                 EXE_SIZE_MB=$(awk "BEGIN {printf \"%.1f\", $EXE_SIZE / 1048576}")
               else
-                EXE_SIZE_MB="unknown"
+                EXE_SIZE_MB="?"
               fi
 
-              DOWNLOAD_TEXT="*📥 Download:* <$EXE_URL|$EXE_NAME> (${EXE_SIZE_MB} MB)"
-
-              PAYLOAD=$(cat <<EOFPAYLOAD
-            {
-              "blocks": [
-                {
-                  "type": "header",
-                  "text": {
-                    "type": "plain_text",
-                    "text": "🚀 Dawaabank $TAG",
-                    "emoji": true
-                  }
-                },
-                {
-                  "type": "section",
-                  "fields": [
-                    {"type": "mrkdwn", "text": "*Version:*\n$TAG"},
-                    {"type": "mrkdwn", "text": "*Date:*\n$DATE"}
-                  ]
-                },
-                {
-                  "type": "section",
-                  "text": {"type": "mrkdwn", "text": "$DOWNLOAD_TEXT"}
-                },
-                {
-                  "type": "actions",
-                  "elements": [
+              # Build JSON with jq (safe - handles all special chars)
+              jq -n \
+                --arg tag "$TAG" \
+                --arg date "$DATE" \
+                --arg exe_name "$EXE_NAME" \
+                --arg exe_url "$EXE_URL" \
+                --arg exe_size "$EXE_SIZE_MB" \
+                --arg url "$URL" \
+                --arg author "$AUTHOR" \
+                '{
+                  "blocks": [
                     {
-                      "type": "button",
-                      "text": {"type": "plain_text", "text": "⬇️ Download $TAG", "emoji": true},
-                      "url": "$EXE_URL",
-                      "style": "primary"
+                      "type": "header",
+                      "text": {"type": "plain_text", "text": ("🚀 Dawaabank " + $tag), "emoji": true}
                     },
                     {
-                      "type": "button",
-                      "text": {"type": "plain_text", "text": "📄 View Release", "emoji": true},
-                      "url": "$URL"
-                    }
+                      "type": "section",
+                      "fields": [
+                        {"type": "mrkdwn", "text": ("*Version:*\n" + $tag)},
+                        {"type": "mrkdwn", "text": ("*Date:*\n" + $date)}
+                      ]
+                    },
+                    {
+                      "type": "section",
+                      "text": {"type": "mrkdwn", "text": ("*📥 Download:* <" + $exe_url + "|" + $exe_name + "> (" + $exe_size + " MB)")}
+                    },
+                    {
+                      "type": "actions",
+                      "elements": [
+                        {
+                          "type": "button",
+                          "text": {"type": "plain_text", "text": ("⬇️ Download " + $tag), "emoji": true},
+                          "url": $exe_url,
+                          "style": "primary"
+                        },
+                        {
+                          "type": "button",
+                          "text": {"type": "plain_text", "text": "📄 View Release", "emoji": true},
+                          "url": $url
+                        }
+                      ]
+                    },
+                    {
+                      "type": "context",
+                      "elements": [{"type": "mrkdwn", "text": ("Released by *" + $author + "*")}]
+                    },
+                    {"type": "divider"}
                   ]
-                },
-                {
-                  "type": "context",
-                  "elements": [{"type": "mrkdwn", "text": "Released by *$AUTHOR*"}]
-                },
-                {"type": "divider"}
-              ]
-            }
-          EOFPAYLOAD
-          )
+                }' > /tmp/payload.json
 
             else
-              # No .exe file - just show release link
-              PAYLOAD=$(cat <<EOFPAYLOAD
-            {
-              "blocks": [
-                {
-                  "type": "header",
-                  "text": {
-                    "type": "plain_text",
-                    "text": "🚀 Dawaabank $TAG",
-                    "emoji": true
-                  }
-                },
-                {
-                  "type": "section",
-                  "fields": [
-                    {"type": "mrkdwn", "text": "*Version:*\n$TAG"},
-                    {"type": "mrkdwn", "text": "*Date:*\n$DATE"}
-                  ]
-                },
-                {
-                  "type": "actions",
-                  "elements": [
+              # No .exe - simple message
+              jq -n \
+                --arg tag "$TAG" \
+                --arg date "$DATE" \
+                --arg url "$URL" \
+                --arg author "$AUTHOR" \
+                '{
+                  "blocks": [
                     {
-                      "type": "button",
-                      "text": {"type": "plain_text", "text": "📄 View Release", "emoji": true},
-                      "url": "$URL"
-                    }
+                      "type": "header",
+                      "text": {"type": "plain_text", "text": ("🚀 Dawaabank " + $tag), "emoji": true}
+                    },
+                    {
+                      "type": "section",
+                      "fields": [
+                        {"type": "mrkdwn", "text": ("*Version:*\n" + $tag)},
+                        {"type": "mrkdwn", "text": ("*Date:*\n" + $date)}
+                      ]
+                    },
+                    {
+                      "type": "actions",
+                      "elements": [
+                        {
+                          "type": "button",
+                          "text": {"type": "plain_text", "text": "📄 View Release", "emoji": true},
+                          "url": $url
+                        }
+                      ]
+                    },
+                    {
+                      "type": "context",
+                      "elements": [{"type": "mrkdwn", "text": ("Released by *" + $author + "*")}]
+                    },
+                    {"type": "divider"}
                   ]
-                },
-                {
-                  "type": "context",
-                  "elements": [{"type": "mrkdwn", "text": "Released by *$AUTHOR*"}]
-                },
-                {"type": "divider"}
-              ]
-            }
-          EOFPAYLOAD
-          )
+                }' > /tmp/payload.json
             fi
 
-            echo "Sending: $TAG ($NAME) - Has EXE: $HAS_EXE"
+            echo "[$COUNT/$TOTAL] Sending: $TAG (EXE: $HAS_EXE)"
 
-            RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" -X POST \
-              -H 'Content-type: application/json' \
-              --data "$PAYLOAD" \
+            RESPONSE=$(curl -s -o /tmp/slack_resp.txt -w "%{http_code}" \
+              -X POST -H 'Content-type: application/json' \
+              --data @/tmp/payload.json \
               "$SLACK_WEBHOOK_URL")
 
-            echo "  → Slack response: $RESPONSE"
-
-            if [ "$RESPONSE" != "200" ]; then
-              echo "  ⚠️ Failed to send $TAG, continuing..."
-            fi
+            echo "  → Response: $RESPONSE - $(cat /tmp/slack_resp.txt)"
 
             sleep 1
 
           done < /tmp/releases.jsonl
 
-          echo "✅ All releases sent to Slack!"
+          echo "✅ Done! Sent $COUNT releases to Slack."
 
   # ============================================
   # JOB 2: Send SINGLE new release (automatic)
