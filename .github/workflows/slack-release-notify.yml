@@ -24,16 +24,16 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          set +e
           echo "📦 Fetching all releases..."
 
           RELEASES=$(curl -s -H "Authorization: token $GH_TOKEN" \
-            "https://api.github.com/repos/${{ github.repository }}/releases" \
-            | jq -r 'sort_by(.published_at)')
+            "https://api.github.com/repos/${{ github.repository }}/releases")
 
-          TOTAL=$(echo "$RELEASES" | jq length)
+          TOTAL=$(echo "$RELEASES" | jq 'length')
           echo "Found $TOTAL releases"
 
-          # Send header message first
+          # Send header message
           curl -s -X POST -H 'Content-type: application/json' \
             --data "{
               \"blocks\": [
@@ -54,129 +54,137 @@ jobs:
 
           sleep 1
 
-          # Loop through each release
-          echo "$RELEASES" | jq -c '.[]' | while read -r RELEASE; do
-            TAG=$(echo "$RELEASE" | jq -r '.tag_name')
-            NAME=$(echo "$RELEASE" | jq -r '.name // .tag_name')
-            URL=$(echo "$RELEASE" | jq -r '.html_url')
-            BODY=$(echo "$RELEASE" | jq -r '.body // "No release notes"' | head -5)
-            AUTHOR=$(echo "$RELEASE" | jq -r '.author.login')
-            DATE=$(echo "$RELEASE" | jq -r '.published_at' | cut -d'T' -f1)
+          # Sort releases and save to temp file
+          echo "$RELEASES" | jq -c 'sort_by(.published_at) | .[]' > /tmp/releases.jsonl
 
-            # Find .exe asset
-            EXE_URL=$(echo "$RELEASE" | jq -r '.assets[] | select(.name | endswith(".exe")) | .browser_download_url' | head -1)
-            EXE_NAME=$(echo "$RELEASE" | jq -r '.assets[] | select(.name | endswith(".exe")) | .name' | head -1)
-            EXE_SIZE=$(echo "$RELEASE" | jq -r '.assets[] | select(.name | endswith(".exe")) | .size' | head -1)
+          while IFS= read -r RELEASE; do
+            TAG=$(echo "$RELEASE" | jq -r '.tag_name // "unknown"')
+            NAME=$(echo "$RELEASE" | jq -r '.name // .tag_name // "unknown"')
+            URL=$(echo "$RELEASE" | jq -r '.html_url // ""')
+            AUTHOR=$(echo "$RELEASE" | jq -r '.author.login // "unknown"')
+            DATE=$(echo "$RELEASE" | jq -r '.published_at // ""' | cut -d'T' -f1)
 
-            if [ -n "$EXE_SIZE" ] && [ "$EXE_SIZE" != "null" ]; then
-              EXE_SIZE_MB=$(echo "scale=1; $EXE_SIZE / 1048576" | bc)
+            # Check if release has .exe asset
+            HAS_EXE=$(echo "$RELEASE" | jq '[.assets[] | select(.name | endswith(".exe"))] | length')
+
+            if [ "$HAS_EXE" -gt 0 ] 2>/dev/null; then
+              EXE_URL=$(echo "$RELEASE" | jq -r '[.assets[] | select(.name | endswith(".exe"))][0].browser_download_url')
+              EXE_NAME=$(echo "$RELEASE" | jq -r '[.assets[] | select(.name | endswith(".exe"))][0].name')
+              EXE_SIZE=$(echo "$RELEASE" | jq -r '[.assets[] | select(.name | endswith(".exe"))][0].size')
+
+              if [ -n "$EXE_SIZE" ] && [ "$EXE_SIZE" != "null" ] && [ "$EXE_SIZE" != "0" ]; then
+                EXE_SIZE_MB=$(awk "BEGIN {printf \"%.1f\", $EXE_SIZE / 1048576}")
+              else
+                EXE_SIZE_MB="unknown"
+              fi
+
               DOWNLOAD_TEXT="*📥 Download:* <$EXE_URL|$EXE_NAME> (${EXE_SIZE_MB} MB)"
-              BUTTON_BLOCK="{
-                \"type\": \"actions\",
-                \"elements\": [
-                  {
-                    \"type\": \"button\",
-                    \"text\": {
-                      \"type\": \"plain_text\",
-                      \"text\": \"⬇️ Download $TAG\",
-                      \"emoji\": true
-                    },
-                    \"url\": \"$EXE_URL\",
-                    \"style\": \"primary\"
-                  },
-                  {
-                    \"type\": \"button\",
-                    \"text\": {
-                      \"type\": \"plain_text\",
-                      \"text\": \"📄 View Release\",
-                      \"emoji\": true
-                    },
-                    \"url\": \"$URL\"
+
+              PAYLOAD=$(cat <<EOFPAYLOAD
+            {
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "🚀 Dawaabank $TAG",
+                    "emoji": true
                   }
-                ]
-              }"
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {"type": "mrkdwn", "text": "*Version:*\n$TAG"},
+                    {"type": "mrkdwn", "text": "*Date:*\n$DATE"}
+                  ]
+                },
+                {
+                  "type": "section",
+                  "text": {"type": "mrkdwn", "text": "$DOWNLOAD_TEXT"}
+                },
+                {
+                  "type": "actions",
+                  "elements": [
+                    {
+                      "type": "button",
+                      "text": {"type": "plain_text", "text": "⬇️ Download $TAG", "emoji": true},
+                      "url": "$EXE_URL",
+                      "style": "primary"
+                    },
+                    {
+                      "type": "button",
+                      "text": {"type": "plain_text", "text": "📄 View Release", "emoji": true},
+                      "url": "$URL"
+                    }
+                  ]
+                },
+                {
+                  "type": "context",
+                  "elements": [{"type": "mrkdwn", "text": "Released by *$AUTHOR*"}]
+                },
+                {"type": "divider"}
+              ]
+            }
+          EOFPAYLOAD
+          )
+
             else
-              DOWNLOAD_TEXT="*📥 Download:* <$URL|View Release Page>"
-              BUTTON_BLOCK="{
-                \"type\": \"actions\",
-                \"elements\": [
-                  {
-                    \"type\": \"button\",
-                    \"text\": {
-                      \"type\": \"plain_text\",
-                      \"text\": \"📄 View Release\",
-                      \"emoji\": true
-                    },
-                    \"url\": \"$URL\"
+              # No .exe file - just show release link
+              PAYLOAD=$(cat <<EOFPAYLOAD
+            {
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "🚀 Dawaabank $TAG",
+                    "emoji": true
                   }
-                ]
-              }"
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {"type": "mrkdwn", "text": "*Version:*\n$TAG"},
+                    {"type": "mrkdwn", "text": "*Date:*\n$DATE"}
+                  ]
+                },
+                {
+                  "type": "actions",
+                  "elements": [
+                    {
+                      "type": "button",
+                      "text": {"type": "plain_text", "text": "📄 View Release", "emoji": true},
+                      "url": "$URL"
+                    }
+                  ]
+                },
+                {
+                  "type": "context",
+                  "elements": [{"type": "mrkdwn", "text": "Released by *$AUTHOR*"}]
+                },
+                {"type": "divider"}
+              ]
+            }
+          EOFPAYLOAD
+          )
             fi
 
-            # Escape special characters for JSON
-            BODY_ESCAPED=$(echo "$BODY" | sed 's/"/\\"/g' | tr '\n' ' ')
+            echo "Sending: $TAG ($NAME) - Has EXE: $HAS_EXE"
 
-            echo "Sending notification for: $TAG ($NAME)"
+            RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" -X POST \
+              -H 'Content-type: application/json' \
+              --data "$PAYLOAD" \
+              "$SLACK_WEBHOOK_URL")
 
-            curl -s -X POST -H 'Content-type: application/json' \
-              --data "{
-                \"blocks\": [
-                  {
-                    \"type\": \"header\",
-                    \"text\": {
-                      \"type\": \"plain_text\",
-                      \"text\": \"🚀 Dawaabank $TAG\",
-                      \"emoji\": true
-                    }
-                  },
-                  {
-                    \"type\": \"section\",
-                    \"fields\": [
-                      {
-                        \"type\": \"mrkdwn\",
-                        \"text\": \"*Version:*\n$TAG\"
-                      },
-                      {
-                        \"type\": \"mrkdwn\",
-                        \"text\": \"*Date:*\n$DATE\"
-                      }
-                    ]
-                  },
-                  {
-                    \"type\": \"section\",
-                    \"text\": {
-                      \"type\": \"mrkdwn\",
-                      \"text\": \"$BODY_ESCAPED\"
-                    }
-                  },
-                  {
-                    \"type\": \"section\",
-                    \"text\": {
-                      \"type\": \"mrkdwn\",
-                      \"text\": \"$DOWNLOAD_TEXT\"
-                    }
-                  },
-                  $BUTTON_BLOCK,
-                  {
-                    \"type\": \"context\",
-                    \"elements\": [
-                      {
-                        \"type\": \"mrkdwn\",
-                        \"text\": \"Released by *$AUTHOR*\"
-                      }
-                    ]
-                  },
-                  {
-                    \"type\": \"divider\"
-                  }
-                ]
-              }" \
-              "$SLACK_WEBHOOK_URL"
+            echo "  → Slack response: $RESPONSE"
 
-            # Wait 1 second between messages (Slack rate limit)
+            if [ "$RESPONSE" != "200" ]; then
+              echo "  ⚠️ Failed to send $TAG, continuing..."
+            fi
+
             sleep 1
 
-          done
+          done < /tmp/releases.jsonl
 
           echo "✅ All releases sent to Slack!"
 
@@ -195,7 +203,12 @@ jobs:
           EXE_URL=$(echo "$ASSETS_JSON" | jq -r '.[] | select(.name | endswith(".exe")) | .browser_download_url')
           EXE_NAME=$(echo "$ASSETS_JSON" | jq -r '.[] | select(.name | endswith(".exe")) | .name')
           EXE_SIZE=$(echo "$ASSETS_JSON" | jq -r '.[] | select(.name | endswith(".exe")) | .size')
-          EXE_SIZE_MB=$(echo "scale=1; $EXE_SIZE / 1048576" | bc)
+
+          if [ -n "$EXE_SIZE" ] && [ "$EXE_SIZE" != "null" ]; then
+            EXE_SIZE_MB=$(awk "BEGIN {printf \"%.1f\", $EXE_SIZE / 1048576}")
+          else
+            EXE_SIZE_MB="unknown"
+          fi
 
           echo "exe_url=$EXE_URL" >> $GITHUB_OUTPUT
           echo "exe_name=$EXE_NAME" >> $GITHUB_OUTPUT
