@@ -1,10 +1,11 @@
-🚀 Version 1.1.0 Release Notes
+🚀 Version 1.1.2 Release Notes
 🌟 Whats New:
     - 🧪 Fixes And Enhances
-    - 🧪 Accounting Feature
-    - 🧪 Update Wasfaty Item OldId
-    - 🧪 Auto Purchase Feature
-    - 🧪 Fixing public price
-
-
-
+    - 🧪 Checkout Pending Order
+    - 🧪 Voucher now work with refund
+    - 🧪 Fix cart scroll
+    - 🧪 Open cart in full windows (Shift + x)
+    - 🧪 Clickable sell-in transaction chip in stock movement details.
+    - 🧪 Quotation creation dialog supports item search and selection .
+    - 🧪 Integrated public price discount support into the auto stock order
+     settings to refine automated replenishment logic.
