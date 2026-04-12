@@ -1,12 +1,4 @@
-🚀 Version 1.1.2 Release Notes
+🚀 Version 1.1.3 Release Notes
 🌟 Whats New:
     - 🧪 Fixes And Enhances
-    - 🧪 Checkout Pending Order
-    - 🧪 Voucher now work with refund
-    - 🧪 Fix cart scroll
-    - 🧪 Open cart in full windows (Shift + x)
-    - 🧪 Upload B2b products-list csv file
-    - 🧪 Clickable sell-in transaction chip in stock movement details.
-    - 🧪 Quotation creation dialog supports item search and selection .
-    - 🧪 Integrated public price discount support into the auto stock order
-     settings to refine automated replenishment logic.
+    - 🧪 Add bonus for b2b item
