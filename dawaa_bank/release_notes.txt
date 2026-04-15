@@ -1,4 +1,4 @@
-🚀 Version 1.1.4 Release Notes
+🚀 Version 1.1.5 Release Notes
 🌟 Whats New:
     - 🧪 Fixes And Enhances
-    - 🧪 Add bonus for b2b item
+    - 🧪 Add notes to b2c cart
