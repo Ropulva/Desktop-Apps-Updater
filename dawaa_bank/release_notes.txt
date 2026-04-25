@@ -1,4 +1,13 @@
-🚀 Version 1.1.7 Release Notes
+🚀 Version 1.1.8 Release Notes
 🌟 Whats New:
     - 🧪 Fixes And Enhances
+    - 🧪 Add MemberShip Setup
+    - 🧪 Fix Export order csv issue
+    - 🧪 B2b Held Carts Window
+    - 🧪 Extract B2b HeldCart Receipt
+    - 🧪 Show cost - total in add b2b dialog
+    - 🧪 Show Paid Amount in b2c pos
+    - 🧪 Show Items for customer-> orders -> one order
+    - 🧪 Show Wasfaty Ref Num for manual wasfaty
+
     
