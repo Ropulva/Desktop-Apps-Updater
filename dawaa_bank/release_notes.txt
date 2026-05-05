@@ -1,13 +1,59 @@
-🚀 Version 1.1.8 Release Notes
-🌟 Whats New:
-    - 🧪 Fixes And Enhances
-    - 🧪 Add MemberShip Setup
-    - 🧪 Fix Export order csv issue
-    - 🧪 B2b Held Carts Window
-    - 🧪 Extract B2b HeldCart Receipt
-    - 🧪 Show cost - total in add b2b dialog
-    - 🧪 Show Paid Amount in b2c pos
-    - 🧪 Show Items for customer-> orders -> one order
-    - 🧪 Show Wasfaty Ref Num for manual wasfaty
+🚀 Version 1.2.0 Release Notes | ملاحظات الإصدار
+🌟 What's New | ما الجديد:
 
-    
+- 🧪 Updated Arabic translations across accounting screens
+  تحديث الترجمات العربية في شاشات المحاسبة
+
+- 🧪 Improved report UI responsiveness
+  تحسين تجاوب واجهة التقارير مع مختلف أحجام الشاشات
+
+- 🧪 Enhanced bilingual support for subledger accounts with localized account names
+  تعزيز الدعم ثنائي اللغة لحسابات الأستاذ المساعد باستخدام أسماء حسابات مترجمة
+
+- 🧪 Improved subledger search functionality
+  تحسين وظيفة البحث في حسابات الأستاذ المساعد
+
+- 🧪 Added comprehensive VAT breakdown and totals to Sell-In Details PDF
+  إضافة تفصيل شامل لضريبة القيمة المضافة والإجماليات في ملف PDF لتفاصيل البيع الداخلي
+
+- 🧪 Improved totals row and summary layout in Sell-In PDF reports
+  تحسين صف الإجماليات وتنسيق الملخص في تقارير PDF الخاصة بالبيع الداخلي
+
+- 🧪 Added navigation to transaction details after creating a Sell-In transaction
+  إضافة الانتقال إلى تفاصيل العملية بعد إنشاء عملية بيع داخلي
+
+- 🧪 Centralized route resolution and navigation logic
+  توحيد منطق تحديد المسارات والتنقل
+
+- 🧪 Added user role handling and task management
+  إضافة دعم الأدوار وإدارة المهام للمستخدمين
+
+- 🧪 Added role/task badges
+  إضافة شارات للأدوار والمهام
+
+- 🧪 Added search mode functionality
+  إضافة وضع البحث
+
+- 🧪 Refactored shift validation dialog into a separate component
+  إعادة هيكلة نافذة التحقق من الوردية كمكوّن مستقل
+
+- 🧪 Added split payment support in the shift validation dialog
+  دعم المدفوعات المقسّمة في نافذة التحقق من الوردية
+
+- 🧪 Fixed customer phone number validation issue
+  إصلاح مشكلة التحقق من رقم هاتف العميل
+
+- 🧪 Fixed refund issue
+  إصلاح مشكلة الاسترجاع
+
+- 🧪 Blocked adding stock items from another branch to POS cart
+  منع إضافة صنف مخزون من فرع آخر إلى سلة نقاط البيع
+
+- 🧪 Locked cart after creating a pending order
+  قفل السلة بعد إنشاء طلب معلّق
+
+- 🧪 Added search functionality in B2C cart
+  إضافة البحث في سلة B2C
+
+- 🧪 Fixed item mapping and selection logic
+  إصلاح منطق ربط العناصر والاختيار
