@@ -54,6 +54,3 @@
 
 - 🧪 Added search functionality in B2C cart
   إضافة البحث في سلة B2C
-
-- 🧪 Fixed item mapping and selection logic
-  إصلاح منطق ربط العناصر والاختيار
