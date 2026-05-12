@@ -11,7 +11,7 @@
             </sparkle:releaseNotesLink>
             <pubDate>Tue, 12 May 2026 16:33:50</pubDate>
             <sparkle:criticalUpdate>false</sparkle:criticalUpdate>
-            <sparkle:minimumSystemVersion>0.7.0</sparkle:minimumSystemVersion>
+            <sparkle:minimumSystemVersion>1.2.1</sparkle:minimumSystemVersion>
             <enclosure url="https://github.com/Ropulva/Desktop-Apps-Updater/releases/download/dawaabank_1.2.22/dawaabank_setup.exe"
                 sparkle:dsaSignature="MDwCHFIdROGyzOf5DOLpZprDbctnyTQG0ynUMaCxeU8CHBzGaqK1rDd7S7Q886gTWjKg41oecPI4Xk80htM="
                 sparkle:version="1.2.22"
