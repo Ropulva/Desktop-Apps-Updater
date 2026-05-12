@@ -1,4 +1,4 @@
-🚀 Version 1.2.5 Release Notes | ملاحظات الإصدار
+🚀 Version 1.2.22 Release Notes | ملاحظات الإصدار
 🌟 What's New | ما الجديد:
 
 * 🧪 Hot fix for Inventory
