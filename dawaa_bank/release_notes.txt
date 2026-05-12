@@ -1,9 +1,32 @@
-🚀 Version 1.2.1 Release Notes | ملاحظات الإصدار
+🚀 Version 1.2.5 Release Notes | ملاحظات الإصدار
 🌟 What's New | ما الجديد:
 
-- 🧪 Added search functionality in B2B cart
-  إضافة البحث في سلة B2B
-- 🧪 Update B2B cart Sort
-     تحديث ترتيب سلة الـ B2B
-- 🧪 Make "Credit and cash" pay method auto calculated again
-جعل طريقة الدفع "كريدت وكاش" تُحسب تلقائيًا مرة أخرى
+* 🧪 Hot fix for Inventory
+  إصلاحات سريعة على المخزون
+
+* 🧪 Added Subledger Statement report in Accounting Reports
+  إضافة تقرير كشف الحساب الفرعي (Subledger Statement) في تقارير المحاسبة
+
+* 🧪 Added support for multiple item-level validation errors in Stock Movement
+  دعم عرض أكثر من خطأ تحقق على مستوى العنصر في حركة المخزون
+
+* 🧪 Added moveable stock tracking in Warehouse Stock
+  إضافة تتبع المخزون القابل للنقل في مخزون المستودعات
+
+* 🧪 Added search functionality in Create Sell-In
+  إضافة خاصية البحث في إنشاء الـ Sell-In
+
+* 🧪 Added GTN (Global Trade Item Number) to item details
+  إضافة رقم GTN (الرقم التجاري العالمي للعنصر) إلى تفاصيل الصنف
+
+* 🧪 Added ability to cancel manual Wasfaty orders
+  إضافة إمكانية إلغاء طلبات وصفتي اليدوية
+
+* 🧪 Added delete functionality for B2B held cart
+  إضافة إمكانية حذف سلة الـ B2B المحفوظة
+
+* 🧪 Enhanced B2B Cart Item form inputs behavior
+  تحسين سلوك حقول الإدخال في عناصر سلة الـ B2B
+
+* 🧪 Added switch between normal and standard search in Warehouse Stock search
+  إضافة التبديل بين البحث العادي والبحث القياسي في بحث مخزون المستودعات
