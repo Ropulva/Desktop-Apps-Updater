@@ -1,4 +1,4 @@
-🚀 Version 1.2.23 Release Notes | ملاحظات الإصدار
+ 🚀 Version 1.2.23 Release Notes | ملاحظات الإصدار
 🌟 What's New | ما الجديد:
 
 - 🧪 Fixes And enhances
