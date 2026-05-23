@@ -1,9 +1,4 @@
-🚀 Version 1.2.1 Release Notes | ملاحظات الإصدار
+🚀 Version 1.2.23 Release Notes | ملاحظات الإصدار
 🌟 What's New | ما الجديد:
 
-- 🧪 Added search functionality in B2B cart
-  إضافة البحث في سلة B2B
-- 🧪 Update B2B cart Sort
-     تحديث ترتيب سلة الـ B2B
-- 🧪 Make "Credit and cash" pay method auto calculated again
-جعل طريقة الدفع "كريدت وكاش" تُحسب تلقائيًا مرة أخرى
+- 🧪 Fixes And enhances
