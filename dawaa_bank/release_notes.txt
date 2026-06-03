@@ -1,4 +1,7 @@
- 🚀 Version 1.2.24 Release Notes | ملاحظات الإصدار
+ 🚀 Version 1.3.0 Release Notes | ملاحظات الإصدار
+⚠️⚠️⚠️ رجاء عدم تحميل التحديث لحد ما IT تبلغكم ⚠️⚠️⚠️
+
 🌟 What's New | ما الجديد:
 
 - 🧪 Fixes And enhances
+- 🧪 Membership Feature
