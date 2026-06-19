@@ -1,9 +1,7 @@
- 🚀 Version 1.3.1 Release Notes | ملاحظات الإصدار
+ 🚀 Version 1.3.2 Release Notes | ملاحظات الإصدار
 ⚠️⚠️⚠️ يُرجى عدم تحميل التحديث حتى يُبلغكم فريق الدعم بذلك. ⚠️⚠️⚠️
 ⚠️⚠️⚠️ Please do not install the update until you receive confirmation from the support team. ⚠️⚠️⚠️
 
 🌟 What's New | ما الجديد:
 
 - 🧪 Fixes And enhances
-- 🧪 Membership Feature
--  🧪
