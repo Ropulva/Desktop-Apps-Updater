@@ -1,0 +1,14 @@
+{
+  "Assets": [
+    {
+      "PackageId": "DawaabankDev",
+      "Version": "1.3.7",
+      "Type": "Full",
+      "FileName": "DawaabankDev-1.3.7-win-dev-full.nupkg",
+      "SHA1": "9AD87732CE45C900C5C6D7C7B2F9E6EE64620378",
+      "SHA256": "7931D7CD7C25192CB0BA408678D70AB7FEAC77CF759CA9819BE2B57B65BADA88",
+      "Size": 40404635,
+      "Url": "https://github.com/Ropulva/Desktop-Apps-Updater/releases/download/dawaabank_1.3.7/DawaabankDev-1.3.7-win-dev-full.nupkg"
+    }
+  ]
+}
