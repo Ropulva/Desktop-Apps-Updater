@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
     <channel>
@@ -6,19 +5,18 @@
         <description>Most recent updates to Dawaabank</description>
         <language>en</language>
         <item>
-            <title>Version 1.0.5</title>
+            <title>Version 1.3.7</title>
             <sparkle:releaseNotesLink>
                 https://raw.githubusercontent.com/Ropulva/Desktop-Apps-Updater/master/dawaa_bank/release_notes.txt
             </sparkle:releaseNotesLink>
-            <pubDate>Sun, 8 Mar 2026 22:12:26</pubDate>
+            <pubDate>Mon, 3 Aug 2026 06:15:29</pubDate>
             <sparkle:criticalUpdate>true</sparkle:criticalUpdate>
-            <sparkle:minimumSystemVersion>1.0.5</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/Ropulva/Desktop-Apps-Updater/releases/download/dawaabank_1.0.5/dawaabank_setup_dev.exe"
-                sparkle:dsaSignature="MD0CHQC63KA8PUo9A8D2vFguK3KkCfrG7abzaXLAqowDAhwsr05bi9EC28RE1jmYBN68NRRPWrR1VyyYXev5"
-                sparkle:version="1.0.5"
+            <enclosure url="https://github.com/Ropulva/Desktop-Apps-Updater/releases/download/dawaabank_1.3.7/dawaabank_relocation_dev.exe"
+                sparkle:dsaSignature="MDwCHAmoM/ZYSDflCw9YepGTO2m8nXxf9h1CqQ18sXoCHC2IasflkKn7ELp1icJR6KjVkQ0Ub9C4IsnjWBw="
+                sparkle:version="1.3.7"
                 sparkle:buildNumber="0"
                 sparkle:os="windows"
-                length="26,429,475"
+                length="45449006"
                 type="application/octet-stream"/>
         </item>
     </channel>
