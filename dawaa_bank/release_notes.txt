@@ -1,7 +1,12 @@
- 🚀 Version 1.4.9 Release Notes | ملاحظات الإصدار 🚀
+🚀 Version 1.4.11 Release Notes | ملاحظات الإصدار 🚀
+
 ⚠️⚠️⚠️ يُرجى عدم تحميل التحديث حتى يُبلغكم فريق الدعم بذلك. ⚠️⚠️⚠️
 ⚠️⚠️⚠️ Please do not install the update until you receive confirmation from the support team. ⚠️⚠️⚠️
 
 🌟 What's New | ما الجديد:
 
-- 🧪 Fixes And enhances
+- 🔧 إصلاح جميع مشاكل مسح الباركود.
+- 📲 يمكنك الآن مسح باركود دواء بانك أو GTIN أو الباركود الدولي.
+
+- 🔧 Fixed all barcode scanning issues.
+- 📲 You can now scan Dawaa Bank barcodes, GTIN barcodes, and international barcodes.
